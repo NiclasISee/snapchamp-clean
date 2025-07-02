@@ -3,15 +3,18 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Pressable } from '
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase'; // ggf. Pfad anpassen
 
+
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [stayLoggedIn, setStayLoggedIn] = useState(false);
 
+
   const handleLogin = async () => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+
 
     navigation.replace('MainApp');
   } catch (error) {
@@ -19,9 +22,11 @@ export default function LoginScreen({ navigation }) {
   }
 };
 
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>SnapChamp Login</Text>
+
 
       <TextInput
         style={styles.input}
@@ -32,6 +37,7 @@ export default function LoginScreen({ navigation }) {
         autoCapitalize="none"
       />
 
+
       <TextInput
         style={styles.input}
         placeholder="Passwort"
@@ -40,16 +46,19 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setPassword}
       />
 
+
       {/* Eingeloggt bleiben */}
       <Pressable onPress={() => setStayLoggedIn(!stayLoggedIn)} style={styles.checkboxRow}>
         <View style={[styles.checkbox, stayLoggedIn && styles.checkboxChecked]} />
         <Text style={styles.checkboxLabel}>Eingeloggt bleiben</Text>
       </Pressable>
 
+
       {/* Login Button */}
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Einloggen</Text>
       </TouchableOpacity>
+
 
       {/* ➕ Neu anmelden */}
       <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
@@ -58,6 +67,7 @@ export default function LoginScreen({ navigation }) {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -118,4 +128,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-

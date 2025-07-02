@@ -12,6 +12,7 @@ import SpinRewardScreen from './screens/SpinRewardScreen';
 import AuthStack from './navigation/AuthStack';
 import MakingOfFeedScreen from './screens/MakingOfFeedScreen';
 import { AppProvider } from './AppContext';
+import LoginScreen from './screens/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -91,7 +92,7 @@ export default function App() {
     <AppProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Auth" component={AuthStack} />
+          <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="MainApp" component={MainTabs} />
           <Stack.Screen name="MakingOfFeed" component={MakingOfFeedScreen} />
           <Stack.Screen name="SpinRewardScreen" component={SpinRewardScreen} />

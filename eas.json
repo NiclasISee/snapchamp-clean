@@ -20,6 +20,8 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "appleId": "niclas.seevers@icloud.com"
+    }
   }
 }
