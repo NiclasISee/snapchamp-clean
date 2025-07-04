@@ -14,7 +14,7 @@ import * as FileSystem from 'expo-file-system';
 import { decode as atob } from 'base-64';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { storage, db, Auth } from '../firebase';
+import { storage, db, auth } from '../firebase';
 import { AppContext } from '../AppContext';
 
 export default function HomeScreen({ navigation }) {
@@ -60,7 +60,7 @@ export default function HomeScreen({ navigation }) {
 
   const uploadImageToFirebase = async (uri) => {
     try {
-      const userId = Auth.currentUser?.uid || 'demoUser';
+      const userId = auth.currentUser?.uid || 'demoUser';
       const filename = uri.split('/').pop();
 
       const base64 = await FileSystem.readAsStringAsync(uri, {
