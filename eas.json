@@ -18,10 +18,5 @@
       "android": {},
       "channel": "production"
     }
-  },
-  "submit": {
-    "production": {
-      "appleId": "niclas.seevers@icloud.com"
-    }
   }
 }
